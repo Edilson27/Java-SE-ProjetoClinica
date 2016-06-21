@@ -1,15 +1,14 @@
-
 package visao;
 
 /**
  *
- * @author Edilson
+ * @author Edilson Freire
  */
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 public class TelaLogin extends javax.swing.JFrame {
 
@@ -28,7 +27,7 @@ public class TelaLogin extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         txtUsuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        senhaUsuario = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,8 +65,8 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/user.png"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(30, 40, 240, 250);
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(330, 180, 220, 40);
+        getContentPane().add(senhaUsuario);
+        senhaUsuario.setBounds(330, 180, 220, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo-principal.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -78,18 +77,25 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        TelaPrincipal tela = new TelaPrincipal();
-        tela.setVisible(true);
-        dispose();
+
+        if(txtUsuario.getText().equals("") && senhaUsuario.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Favor digitar nome de usuário e senha!");
+        } else if (txtUsuario.getText().equals("e") && senhaUsuario.getText().equals("1")) {
+            TelaPrincipal tela = new TelaPrincipal();
+            tela.setVisible(true);
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Senha e usuário inválidos!");                    
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        // TODO add your handling code here:
-        
+        // Método para fechar do sistema
+        System.exit(0);
     }//GEN-LAST:event_btnSairActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -115,7 +121,6 @@ public class TelaLogin extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaLogin().setVisible(true);
@@ -128,7 +133,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField senhaUsuario;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

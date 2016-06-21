@@ -32,7 +32,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButtonCadMedicos = new javax.swing.JButton();
         jButtonCadClientes = new javax.swing.JButton();
-        jButtonCadUsuario = new javax.swing.JButton();
         jButtonCadAgenda = new javax.swing.JButton();
         jButtonCadEnfermeira1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -70,6 +69,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jButtonCadMedicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/doutor1.png"))); // NOI18N
         jButtonCadMedicos.setToolTipText("Cadastro de Médicos");
+        jButtonCadMedicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadMedicosActionPerformed(evt);
+            }
+        });
         jPanelInternalFrame.add(jButtonCadMedicos);
         jButtonCadMedicos.setBounds(10, 40, 130, 110);
 
@@ -77,11 +81,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonCadClientes.setToolTipText("Cadastro de Clientes");
         jButtonCadClientes.setAlignmentX(1.0F);
         jPanelInternalFrame.add(jButtonCadClientes);
-        jButtonCadClientes.setBounds(290, 40, 130, 110);
-
-        jButtonCadUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuario.png"))); // NOI18N
-        jPanelInternalFrame.add(jButtonCadUsuario);
-        jButtonCadUsuario.setBounds(430, 40, 130, 110);
+        jButtonCadClientes.setBounds(150, 160, 130, 110);
 
         jButtonCadAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/agenda.png"))); // NOI18N
         jButtonCadAgenda.setToolTipText("Agenda");
@@ -161,6 +161,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuFerrramenta.setText("Ferramentas");
 
         jMenuItemFerBemVindo.setText("Tela Bem Vindo");
+        jMenuItemFerBemVindo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemFerBemVindoActionPerformed(evt);
+            }
+        });
         jMenuFerrramenta.add(jMenuItemFerBemVindo);
 
         jMenuBar1.add(jMenuFerrramenta);
@@ -192,7 +197,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemCadUsuariosActionPerformed
 
     private void jMenuItemCadMedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadMedicosActionPerformed
-        // TODO add your handling code here:
+        // Cadastro de Médicos
+        TelaMedico telaMedico = new TelaMedico();
+        telaMedico.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadMedicosActionPerformed
 
     private void jButtonSairBemVindoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairBemVindoActionPerformed
@@ -203,6 +210,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItemSairActionPerformed
+
+    private void jMenuItemFerBemVindoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFerBemVindoActionPerformed
+        
+        TelaPrincipal telaInternalFrame = new TelaPrincipal();
+        telaInternalFrame.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItemFerBemVindoActionPerformed
+
+    private void jButtonCadMedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadMedicosActionPerformed
+        // Cadastro de Médicos
+        TelaMedico telaMedico = new TelaMedico();
+        telaMedico.setVisible(true);
+    }//GEN-LAST:event_jButtonCadMedicosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,7 +264,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCadClientes;
     private javax.swing.JButton jButtonCadEnfermeira1;
     private javax.swing.JButton jButtonCadMedicos;
-    private javax.swing.JButton jButtonCadUsuario;
     private javax.swing.JButton jButtonSairBemVindo;
     private javax.swing.JInternalFrame jInternalFrameBemVindo;
     private javax.swing.JLabel jLabel1;
